@@ -20,7 +20,7 @@ function Navigation(){
 
     return(
         <nav className="m-1">
-            <span className="text-3xl">
+            <span className="text-3xl text-gray-800">
                 <FontAwesomeIcon 
                     icon={faBars}
                     onClick={()=>setShowMenu(!showMenu)} //instead of true , i use the opposite of the current state to make a toggle action 
@@ -32,7 +32,7 @@ function Navigation(){
                 item && 
                 <animated.div 
                     style={styles}
-                    className="bg-black fixed top-0 left-0 w-full h-full z-50 "
+                    className="bg-gray-800 fixed top-0 left-0 w-full h-full z-50 "
                     onClick={()=>setShowMenu(false)}
                 >
                    
