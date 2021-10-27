@@ -1,29 +1,62 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { useTransition, animated } from 'react-spring'
 
 function Navigation(){
-    const[showMenu,setMenu]=useState(false)
+    const[showMenu,setShowMenu]=useState(false)
 
-    let menu
-    let menuMask
+    const maskTransistions = useTransition(showMenu, {
+        from:  { position:'absolute', opacity: 0 },
+        enter: { opacity: 1},
+        leave: { opacity: 0},
+      })
 
-    if(showMenu){
-        menu=
-        <div className="bg-gray-200 fixed bg-white top-0 left-0 w-4/5 h-full shadow">
-                Menu
-        </div>
-    }
+      const menuTransitions = useTransition(showMenu, {
+        from:  { opacity: 0, transform:'translateX(-100%)'},
+        enter: { opacity: 1, transform:'translateX(0%)'},
+        leave: { opacity: 0, transform:'translateX(-100%)'},
+      })
+
     return(
-        <nav>
-            <span className="text-xl">
+        <nav className="m-1">
+            <span className="text-3xl">
                 <FontAwesomeIcon 
                     icon={faBars}
-                    onClick={()=>setMenu(!showMenu)} //instead of true , i use the opposite of the current state to make a toggle action 
+                    onClick={()=>setShowMenu(!showMenu)} //instead of true , i use the opposite of the current state to make a toggle action 
                 />
             </span>
 
-            {menu}
+            {   //https://react-spring.io/hooks/use-transition
+                maskTransistions((styles, item) => 
+                item && 
+                <animated.div 
+                    style={styles}
+                    className="bg-black fixed top-0 left-0 w-full h-full z-50 "
+                    onClick={()=>setShowMenu(false)}
+                >
+                   
+                </animated.div>)
+            }
+            
+            {   //https://react-spring.io/hooks/use-transition
+                menuTransitions((styles, item) => 
+                item && 
+                <animated.div 
+                    style={styles}
+                    className="fixed bg-white top-0 left-0 w-4/5 h-full z-50 shadow p-3 "
+                >
+                 <span>
+                     The menu
+                 </span>
+                 <ul>
+                     <li>Categories #1</li>
+                     <li>Categories #2</li>
+                     <li>Categories #3</li>
+                     <li>Categories #4</li>
+                 </ul>
+                </animated.div>)
+            }
         </nav>
     )
 }
