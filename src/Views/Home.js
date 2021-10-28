@@ -14,6 +14,17 @@ function Home(){
         error:false,
     })
 
+    //Token authorization
+    axios.interceptors.request.use(
+        config=>{
+            config.headers.authorization=`Bearer ${accessToken}`
+            return config
+        },
+        error=>{
+            return Promise.reject(error)
+        }
+    )
+
     
     useEffect(()=>{
         setProducts({
@@ -53,7 +64,7 @@ function Home(){
     if(products.data){
         content= products.data.map((product,index)=>
             <div>
-                {product.albumId}
+                {product.name}
             </div>
         )
     }
@@ -64,7 +75,7 @@ function Home(){
 
     return(
         <div>
-            <h1 className="font bold text-2xl">Best Sellers</h1>
+            <h1 className="font bold text-2xl">Categories</h1>
 
             {content}
         </div>
