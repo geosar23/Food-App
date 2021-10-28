@@ -2,6 +2,9 @@ import './App.css';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom"
+import Home from './Views/Home'
+import About from './Views/About'
+import Product from './Views/Product'
 
 function App() {
   return (
@@ -12,13 +15,16 @@ function App() {
 
         <Header/>
 
-        <div className="py-3">
+        <div className="">
           <Switch>
             <Route exact path="/">
-              <h1 className="font bold text-2xl">This is the home page</h1>
+              <Home/>
             </Route>
             <Route path="/about">
-              <h1 className="font bold text-2xl">About us</h1>
+              <About/>
+            </Route>
+            <Route path="/products/:id">
+              <Product/>
             </Route>
           </Switch>
         </div>
