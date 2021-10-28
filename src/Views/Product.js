@@ -19,13 +19,27 @@ function Product(){
     //   config
     // ).then(console.log).catch(console.log);
 
+    const [requestError,setError]=useState()
+    const accessToken='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.LBHszzcjG4uVpYR-SpxUUbUEwhz8S8csczNW63L93xM'
+    const url=`https://fe-assignment-server.herokuapp.com/api/v1/food/products`
+
     const {id}=useParams()//returns all of url parameters and we get just the id through destr..
-    const url=`https://jsonplaceholder.typicode.com/photos/${id}`
     const [product,setProduct]=useState({
         loading:false,
         data:null,
         error:false,
     })
+
+    //Token authorization
+    axios.interceptors.request.use(
+        config=>{
+            config.headers.authorization=`Bearer ${accessToken}`
+            return config
+        },
+        error=>{
+            return Promise.reject(error)
+        }
+    )
 
     let content=null
 
@@ -72,7 +86,7 @@ function Product(){
                         />
                     </div>
                     <div className="font-bold text-xl mb-3">
-                        Album Id:{product.data.albumId}
+                        :{product.data.albumId}
                     </div>
                     <div>
                         Id:{product.data.id}
