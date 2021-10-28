@@ -24,6 +24,7 @@ function Product(){
     const [product,setProduct]=useState({
         loading:false,
         data:null,
+        error:false,
     })
 
     let content=null
@@ -32,15 +33,28 @@ function Product(){
         setProduct({
             loading:true,  
             data:null,
+            error:false,
         })
         axios.get(url)
             .then(response=>{
                 setProduct({
                     loading:false,
-                    data:response.data
+                    data:response.data,
+                    error:false,
+                })
+            })
+            .catch(error=>{
+                setProduct({
+                    loading:false,
+                    data:null,
+                    error:true,
                 })
             })
     },[url])
+
+    if(product.error){
+        content=<h1 className="text-6xl bold text-red-500 content-center">Error:{product.data} please refresh</h1>
+    }
 
     if(product.loading){
         content=<Loading/>
