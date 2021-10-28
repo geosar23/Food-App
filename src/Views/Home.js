@@ -1,12 +1,13 @@
 import React ,{useEffect, useState} from "react";
 import axios from 'axios'
 import Loading from "../Components/Loading";
+import ProductCard from "../Components/ProductCard";
 
 function Home(){
 
     const [requestError,setError]=useState()
     const accessToken='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.LBHszzcjG4uVpYR-SpxUUbUEwhz8S8csczNW63L93xM'
-    const url=`https://fe-assignment-server.herokuapp.com/api/v1/food/categories`
+    const url=`https://fe-assignment-server.herokuapp.com/api/v1/food/products`
 
     const [products,setProducts]=useState({
         loading:false,
@@ -64,7 +65,7 @@ function Home(){
     if(products.data){
         content= products.data.map((product,index)=>
             <div>
-                {product.name}
+                <ProductCard product={product}/>
             </div>
         )
     }
@@ -75,7 +76,7 @@ function Home(){
 
     return(
         <div>
-            <h1 className="font bold text-2xl">Categories</h1>
+            <h1 className="font bold text-2xl">Products</h1>
 
             {content}
         </div>
