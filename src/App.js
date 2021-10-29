@@ -3,8 +3,6 @@ import Footer from './Components/Footer';
 import Header from './Components/Header';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom"
 import Home from './Views/Home'
-import About from './Views/About'
-//import Product from './Views/Product'
 
 function App() {
   return (
@@ -19,9 +17,6 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Home/>
-            </Route>
-            <Route path="/about">
-              <About/>
             </Route>
           </Switch>
         </div>

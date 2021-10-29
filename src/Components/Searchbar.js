@@ -1,6 +1,8 @@
 import React from "react";
 
 function Searchbar(){
+    //SearchBar Component
+
     return(
         <div className="shadow flex">
             <input className="w-full rounded p-2" type="text" placeholder="Search..."/>

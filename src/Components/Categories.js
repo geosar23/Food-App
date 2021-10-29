@@ -4,8 +4,8 @@ import axios from "axios";
 import Loading from "./Loading";
 
 function Categories(props){
+    //Fetch and Render Categories on Menu
 
-    //const {id , name , index}=useParams()
     const [requestError,setError]=useState()
     const accessToken='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.LBHszzcjG4uVpYR-SpxUUbUEwhz8S8csczNW63L93xM'
     const url=`https://fe-assignment-server.herokuapp.com/api/v1/food/categories`

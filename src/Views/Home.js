@@ -4,6 +4,7 @@ import Loading from "../Components/Loading";
 import ProductCard from "../Components/ProductCard";
 
 function Home(){
+    //Fetched Products and listed at Home View
 
     const [requestError,setError]=useState()
     const accessToken='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.LBHszzcjG4uVpYR-SpxUUbUEwhz8S8csczNW63L93xM'
@@ -75,7 +76,7 @@ function Home(){
 
 
     return(
-        <div className="grid grid-cols-2 md:grid-cols-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             {content}
         </div>
         
