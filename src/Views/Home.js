@@ -63,8 +63,8 @@ function Home(){
     }
 
     if(products.data){
-        content= products.data.map((product,index)=>
-            <div>
+        content= products.data.map((product)=>
+            <div key={product.id}>
                 <ProductCard product={product}/>
             </div>
         )
