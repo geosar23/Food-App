@@ -8,7 +8,7 @@ import About from './Views/About'
 
 function App() {
   return (
-    <div className="app-header">
+    <div className="relative">
       
 
       <Router>
