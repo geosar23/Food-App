@@ -75,9 +75,7 @@ function Home(){
 
 
     return(
-        <div>
-            <h1 className="font bold text-2xl">Products</h1>
-
+        <div className="grid grid-cols-2 md:grid-cols-4">
             {content}
         </div>
         
