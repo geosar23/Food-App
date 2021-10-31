@@ -1,7 +1,6 @@
 import {React , useState , useEffect} from "react";
-import {Link} from "react-router-dom"
 import axios from "axios";
-import Loading from "./Loading";
+import Loading from "../../../../FoodApp/foodapp-assessment/src/Components/Loading";
 
 function Categories(props){
     //Fetch and Render Categories on Menu
@@ -65,7 +64,7 @@ function Categories(props){
     if(categories.data){
         content= categories.data.map((category,key)=>
             <div key={category.id}>
-                <li className="block text-blue-500 py-3  border-t border-b">
+                <li onClick={props.closeMenu} className="block text-blue-500 py-3  border-t border-b">
                     {category.name}
                 </li>
             </div>
@@ -83,23 +82,6 @@ function Categories(props){
             {content}
         </div>
         
-    )
-
-
-    return(
-        <div>
-             <div className="font-bold py-3">
-                 Categories
-            </div>
-            <ul>
-                <li>
-                    <Link onClick={props.closeMenu} to="/" className="block text-blue-500 py-3  border-t border-b">Home</Link>
-                </li>
-                <li>
-                    <Link onClick={props.closeMenu} to="/about" className="block text-blue-500 py-3 border-b">About</Link>
-                </li>
-            </ul>
-        </div>
     )
 }
 
