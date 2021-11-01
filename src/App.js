@@ -86,7 +86,7 @@ function App() {
         let filterableProducts=[]
 
         for(let i=0; i<products.data.length; i++){
-            if(products.data[i].name.toUpperCase().includes(searchTerm.toUpperCase())
+            if(products.data[i].name.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "").includes(searchTerm.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, ""))
                 ||
                 products.data[i].id.includes(searchTerm)){
                     console.log(products.data[i].name)
@@ -94,10 +94,6 @@ function App() {
 
             }
         }
-        console.log(products.data[1])
-        console.log(products.data)
-        console.log(filterableProducts)
-
 
         content=filterableProducts.map((product)=>
         <div key={product.id}>

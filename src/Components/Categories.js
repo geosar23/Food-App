@@ -64,12 +64,15 @@ function Categories(props){
     if(categories.data){
         content= categories.data.map((category,key)=>
             <div key={category.id}>
-                <li onClick={props.closeMenu} className="block text-blue-500 py-3  border-t border-b">
+                <li onClick={props.closeMenu}  className="block text-blue-500 py-3  border-t border-b">
                     {category.name}
                 </li>
             </div>
         )
     }
+
+    const sortedCategories=categories.data
+    console.log(sortedCategories)
 
 
 
