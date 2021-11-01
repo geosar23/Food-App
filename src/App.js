@@ -103,10 +103,34 @@ function App() {
     }
 
     //filterCategories
+    function choosedCategory(id){
+        console.log(id)
+        let filterableProducts2=[]
+
+        for(let i=0; i<products.data.length; i++){
+            if(products.data[i].categoryId.includes(id)){
+                filterableProducts2.push(products.data[i])
+            }
+        }
+
+        setProducts({
+            loading:false,
+            data:filterableProducts2,
+            error:false,
+        })
+
+        content=filterableProducts2.map((product)=>
+        <div key={product.id}>
+            <ProductCard product={product}/>
+        </div>
+        )
+
+        console.log(filterableProducts2)
+    }
     
 
-
-
+    console.log(products)
+    console.log(content)
   
   return (
     <div className="relative pb-10 min-h-screen">
@@ -122,7 +146,7 @@ function App() {
                     <i className="material-icons">search</i>
                 </button>
             </div> 
-            <Navigation/>
+            <Navigation choosedCategory={choosedCategory}/>
         </header>
       <Home content={content} />
       <Footer/>

@@ -51,7 +51,6 @@ function Categories(props){
     },[url])
 
     let content=null
-   
 
     if(categories.error){
         content=<h1 className="text-center text-3xl bold text-red-500 content-center">Error:{requestError.message} please refresh</h1>
@@ -65,21 +64,14 @@ function Categories(props){
         content= categories.data.map((category,key)=>
             <div key={category.id}>
                 <li onClick={props.closeMenu}  className="block text-blue-500 py-3  border-t border-b">
-                    {category.name}
+                   <button id={category.id} name={category.name} onClick={e=>{
+                    console.log(`${e.target.name}===>${e.target.id}` )
+                    props.getClickedCategory(e.target.id)
+                    }} > {category.name}</button>
                 </li>
             </div>
         )
     }
-
-    const sortedCategories=categories.data
-    console.log(sortedCategories)
-    //sortedCategories.sort((a, b) => (a.color > b.color) ? 1 : -1)
-
-    console.log(props.test)
-
-
-
-
 
     return(
         <div >

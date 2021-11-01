@@ -4,7 +4,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { useTransition, animated } from 'react-spring'
 import Categories from "./Categories";
 
-function Navigation(){
+function Navigation(props){
     const[showMenu,setShowMenu]=useState(false)
 
     const maskTransistions = useTransition(showMenu, {
@@ -19,7 +19,12 @@ function Navigation(){
         leave: { opacity: 0, transform:'translateX(-100%)'},
       })
 
-      const test="TESTING"
+      //Sent category to parent 
+      function getClickedCategory(id){
+          console.log(id)
+          props.choosedCategory(id)
+      }
+
 
     return(
         <nav className="m-1">
@@ -49,7 +54,7 @@ function Navigation(){
                     style={styles}
                     className="fixed bg-white top-0 left-0 w-4/5 h-full z-50 shadow p-3 "
                 >
-                    <Categories closeMenu={()=>setShowMenu(false)} test={test}/>
+                    <Categories closeMenu={()=>setShowMenu(false)} getClickedCategory={getClickedCategory}/>
                 </animated.div>)
             }
         </nav>
