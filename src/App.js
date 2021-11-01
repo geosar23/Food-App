@@ -75,7 +75,7 @@ function App() {
   console.log(searchTerm)
 
   
-
+  //Filtering with SearchBar
   if(products.data && searchTerm===""){
     content= products.data.map((product)=>
         <div key={product.id}>
@@ -102,6 +102,9 @@ function App() {
         )
     }
 
+    //filterCategories
+    
+
 
 
   
@@ -122,7 +125,6 @@ function App() {
             <Navigation/>
         </header>
       <Home content={content} />
-      {}
       <Footer/>
     </div>
   );

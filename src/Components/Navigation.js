@@ -19,6 +19,8 @@ function Navigation(){
         leave: { opacity: 0, transform:'translateX(-100%)'},
       })
 
+      const test="TESTING"
+
     return(
         <nav className="m-1">
             <span className="text-3xl text-gray-800">
@@ -47,7 +49,7 @@ function Navigation(){
                     style={styles}
                     className="fixed bg-white top-0 left-0 w-4/5 h-full z-50 shadow p-3 "
                 >
-                    <Categories closeMenu={()=>setShowMenu(false)}/>
+                    <Categories closeMenu={()=>setShowMenu(false)} test={test}/>
                 </animated.div>)
             }
         </nav>

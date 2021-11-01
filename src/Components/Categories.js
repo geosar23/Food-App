@@ -36,7 +36,7 @@ function Categories(props){
             .then(response=>{
                 setCategories({
                     loading:false,
-                    data:response.data,
+                    data:response.data.sort((a, b) => (a.index > b.index) ? 1 : -1),
                     error:false,
                 })
             })
@@ -73,6 +73,9 @@ function Categories(props){
 
     const sortedCategories=categories.data
     console.log(sortedCategories)
+    //sortedCategories.sort((a, b) => (a.color > b.color) ? 1 : -1)
+
+    console.log(props.test)
 
 
 
