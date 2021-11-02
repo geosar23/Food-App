@@ -57,6 +57,8 @@ function App() {
           })
   },[url])
 
+  //const fullProducts=products
+
   //Setting fetched Content
 
   let content=null
@@ -113,19 +115,24 @@ function App() {
             }
         }
 
-        setProducts({
-            loading:false,
-            data:filterableProducts2,
-            error:false,
-        })
-
         content=filterableProducts2.map((product)=>
         <div key={product.id}>
             <ProductCard product={product}/>
         </div>
         )
 
+        setProducts({
+            loading:false,
+            data:filterableProducts2,
+            error:false,
+        })
+
         console.log(filterableProducts2)
+    }
+
+    //Refresh Products
+    function Refresh(){
+        window.location.reload(true);
     }
     
 
@@ -135,7 +142,10 @@ function App() {
   return (
     <div className="relative pb-10 min-h-screen">
       <header className="m-3 border-b p-4 flex justify-between items-center">
-            <span className="text-xl font-bold text-gray-800">George Saramantis</span>
+            <span className="text-xl font-bold text-gray-800" ><button onClick={e=>{
+                    console.log(`${e.target.name}===>${e.target.id}` )
+                    Refresh()
+                    }} >George Saramantis</button></span>
             <div className="shadow flex">
                 <input className="w-full rounded p-2" onChange={e=>{
                     setSearchTerm(e.target.value)
