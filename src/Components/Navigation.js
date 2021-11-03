@@ -22,7 +22,7 @@ function Navigation(props){
       //Sent category to parent 
       function getClickedCategory(id){
           console.log(id)
-          props.choosedCategory(id)
+          props.chooseCategory(id)
       }
 
 

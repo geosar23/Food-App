@@ -48,7 +48,7 @@ function Categories(props){
                     error:true,
                 })
             })
-    },[url])
+    },[])
 
     let content=null
 
