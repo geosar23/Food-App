@@ -2,7 +2,7 @@ import React from 'react'
 
 function Searchbar({setSearchTerm}){
     return(
-        <div className=" shadow flex">
+        <div className="shadow flex">
                 <input 
                     className="context-center w-full rounded p-2" 
                     onChange={e=>{
@@ -10,7 +10,7 @@ function Searchbar({setSearchTerm}){
                     }} 
                     type="text" 
                     placeholder="Search..." />
-                <button className="bg-white w-auto flex justify-end items-center text-gray-800 p-2 hover:text-gray-800">
+                <button className="bg-white w-auto flex justify-end items-center text-gray-800 p-2 hover:text-gray-800" >
                     <i className="material-icons">search</i>
                 </button>
             </div> 

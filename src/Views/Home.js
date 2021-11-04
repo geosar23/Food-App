@@ -4,7 +4,7 @@ import ProductCard from "../Components/ProductCard";
 
 function Home({displayList, setDisplayList, error, isLoading}){
 
-    const [forceRerender,setForceRerender]=useState() //
+    const [forceRerender,setForceRerender]=useState()
 
     function showError(){
         console.log(error)

@@ -7,12 +7,11 @@ import Loading from './Components/Loading';
 import ProductCard from './Components/ProductCard';
 import Navigation from './Components/Navigation';
 import Searchbar from './Components/Searchbar';
+import Logo from './Components/Logo';
 
 
 function App() {
-  //Fetched Products
 
- 
   const accessToken='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.LBHszzcjG4uVpYR-SpxUUbUEwhz8S8csczNW63L93xM'
   const url=`https://fe-assignment-server.herokuapp.com/api/v1/food/products`
 
@@ -35,7 +34,7 @@ function App() {
       }
   )
 
-  //Handling the response
+  //Fetching Products
   useEffect(()=>{
     axios.get(url)
         .then(response=>{
@@ -56,7 +55,7 @@ function App() {
         })
   },[])
 
-
+  //Handling the response
   useEffect(()=>{
       if(!searchTerm){
         setDisplayList(products.data)
@@ -91,23 +90,10 @@ function App() {
         setDisplayList(filteredProducts)
     }
 
-
-
-    function reloadPage(){
-        window.location.reload(true);
-    }
-
-    // 
-    // // if(products.loading){
-    //     content=<Loading/>
-    // }
-  
   return (
     <div className="bg-gray-100 relative pb-10 min-h-screen">
-        <header className="border-b p-4 flex justify-between items-center">
-            <span className="text-2xl font-bold text-gray-800" >
-                <button onClick={reloadPage} >George Saramantis</button>
-            </span>
+        <header className="border-b mb-4 p-2  grid grid-cols-3">
+            <Logo/>
             <Searchbar setSearchTerm={setSearchTerm}/>
             <Navigation chooseCategory={chooseCategory}/>
         </header>
