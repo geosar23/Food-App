@@ -6,6 +6,7 @@ import axios from 'axios'
 import Loading from './Components/Loading';
 import ProductCard from './Components/ProductCard';
 import Navigation from './Components/Navigation';
+import Searchbar from './Components/Searchbar';
 
 
 function App() {
@@ -107,18 +108,7 @@ function App() {
             <span className="text-2xl font-bold text-gray-800" >
                 <button onClick={reloadPage} >George Saramantis</button>
             </span>
-            <div className=" shadow flex">
-                <input 
-                    className="context-center w-full rounded p-2" 
-                    onChange={e=>{
-                        setSearchTerm(e.target.value)
-                    }} 
-                    type="text" 
-                    placeholder="Search..." />
-                <button className="bg-white w-auto flex justify-end items-center text-gray-800 p-2 hover:text-gray-800">
-                    <i className="material-icons">search</i>
-                </button>
-            </div> 
+            <Searchbar setSearchTerm={setSearchTerm}/>
             <Navigation chooseCategory={chooseCategory}/>
         </header>
       <Home displayList={displayList} setDisplayList={setDisplayList} error={products.error} isLoading={products.isLoading}/>
