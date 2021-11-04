@@ -64,7 +64,6 @@ function App() {
                 const filterMatchesName = products.data[i].name.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "").includes(searchTerm.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, ""))
                 const filterMatchesId = products.data[i].id.includes(searchTerm)
                 if(filterMatchesName || filterMatchesId){
-                    console.log(products.data[i].name)
                     filteredProducts.push(products.data[i])
                 }
             }
