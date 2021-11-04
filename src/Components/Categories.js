@@ -1,8 +1,9 @@
 import {React , useState , useEffect} from "react";
 import axios from "axios";
-import Loading from "../../../../FoodApp/foodapp-assessment/src/Components/Loading";
+import Loading from "./Loading";
 
 function Categories(props){
+
     //Fetch and Render Categories on Menu
 
     const [requestError,setError]=useState()
@@ -56,7 +57,7 @@ function Categories(props){
     let content=null
 
     if(categories.error){
-        content=<h1 className="text-center text-3xl bold text-red-500 content-center">Error:{requestError.message} please refresh</h1>
+        content=<h1 className="text-center text-3xl bold text-red-500 content-center">Error:{categories.error.message} please refresh</h1>
     }
 
     if(categories.loading){
@@ -67,10 +68,7 @@ function Categories(props){
         content= categories.data.map((category,key)=>
             <div key={category.id}>
                 <li onClick={props.closeMenu}  className="block text-xl font-bold text-gray-800 py-3  border-t border-b bg-blue-200 hover:bg-gray-400  rounded-l text-center">
-                   <button id={category.id} name={category.name} onClick={e=>{
-                    console.log(`${e.target.name}===>${e.target.id}` )
-                    props.getClickedCategory(e.target.id)
-                    }} > {category.name}</button>
+                   <button id={category.id} name={category.name} onClick={e=>{props.getClickedCategory(e.target.id)}}> {category.name}</button>
                 </li>
             </div>
         )
@@ -80,11 +78,8 @@ function Categories(props){
         <div >
             <h1 className="font-bold text-gray-800 text-3xl py-3 text-center">Categories</h1>
             <li onClick={props.closeMenu}  className="block text-xl font-bold text-gray-800 py-3  border-t border-b bg-blue-200 hover:bg-gray-400  rounded-l text-center">
-                   <button onClick={e=>{
-                    console.log(`${e.target.name}===>${e.target.id}` )
-                    props.getClickedCategory(e.target.id)
-                    }} >All</button>
-                </li>
+                <button onClick={e=>{props.getClickedCategory(e.target.id)}} >All</button>
+            </li>
             {content}
         </div>
         

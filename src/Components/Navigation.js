@@ -21,7 +21,6 @@ function Navigation(props){
 
       //Sent category to parent 
       function getClickedCategory(id){
-          console.log(id)
           props.chooseCategory(id)
       }
 

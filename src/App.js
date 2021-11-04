@@ -3,8 +3,6 @@ import Footer from './Components/Footer';
 import Home from './Views/Home'
 import React ,{useEffect, useState} from "react";
 import axios from 'axios'
-import Loading from './Components/Loading';
-import ProductCard from './Components/ProductCard';
 import Navigation from './Components/Navigation';
 import Searchbar from './Components/Searchbar';
 import Logo from './Components/Logo';
@@ -53,7 +51,7 @@ function App() {
             })
             setDisplayList([])
         })
-  },[])
+  },[url])
 
   //Handling the response
   useEffect(()=>{
@@ -78,7 +76,6 @@ function App() {
 
     //filterCategories
     function chooseCategory(id){
-        console.log(id)
         const filteredProducts=[]
 
         for(let i=0; i<products.data.length; i++){
@@ -97,8 +94,8 @@ function App() {
             <Searchbar setSearchTerm={setSearchTerm}/>
             <Navigation chooseCategory={chooseCategory}/>
         </header>
-      <Home displayList={displayList} setDisplayList={setDisplayList} error={products.error} isLoading={products.isLoading}/>
-      <Footer/>
+        <Home displayList={displayList} setDisplayList={setDisplayList} error={products.error} isLoading={products.isLoading}/>
+        <Footer/>
     </div>
   );
 }
