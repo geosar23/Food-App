@@ -10,10 +10,11 @@ function Categories(props){
     const url=`https://fe-assignment-server.herokuapp.com/api/v1/food/categories`
 
     const [categories,setCategories]=useState({
-        loading:false,
+        isLoading:false,
         data:null,
-        error:false,
+        error:undefined,
     })
+
 
     //Token authorization
     axios.interceptors.request.use(
@@ -25,10 +26,11 @@ function Categories(props){
             return Promise.reject(error)
         }
     )
-
+    
+    //Fetch Categories
     useEffect(()=>{
         setCategories({
-            loading:true,  
+            isLoading:true,  
             data:null,
             error:false,
         })
@@ -40,15 +42,16 @@ function Categories(props){
                     error:false,
                 })
             })
-            .catch(err=>{
-                setError(err)
+            .catch(error=>{
                 setCategories({
                     loading:false,
                     data:null,
-                    error:true,
+                    error
                 })
             })
     },[])
+
+    //Handling the response
 
     let content=null
 
@@ -63,7 +66,7 @@ function Categories(props){
     if(categories.data){
         content= categories.data.map((category,key)=>
             <div key={category.id}>
-                <li onClick={props.closeMenu}  className="block text-blue-500 py-3  border-t border-b">
+                <li onClick={props.closeMenu}  className="block text-xl font-bold text-gray-800 py-3  border-t border-b bg-blue-200 hover:bg-gray-400  rounded-l text-center">
                    <button id={category.id} name={category.name} onClick={e=>{
                     console.log(`${e.target.name}===>${e.target.id}` )
                     props.getClickedCategory(e.target.id)
@@ -75,7 +78,7 @@ function Categories(props){
 
     return(
         <div >
-            <h1 className="font bold text-2xl py-3">Categories</h1>
+            <h1 className="font-bold text-gray-800 text-3xl py-3 text-center">Categories</h1>
 
             {content}
         </div>

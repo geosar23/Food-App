@@ -34,7 +34,7 @@ function App() {
       }
   )
 
-  //Fetching Products
+  //Fetch Products
   useEffect(()=>{
     axios.get(url)
         .then(response=>{

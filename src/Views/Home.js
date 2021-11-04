@@ -33,8 +33,8 @@ function Home({displayList, setDisplayList, error, isLoading}){
     return(
         <div className="content-center">
             <div className="text-center">
-                <button className="bg-blue-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" onClick={()=>sortList(1)}>Price Ascending</button>
-                <button className="bg-blue-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r" onClick={()=>sortList(-1)}>Price Descending</button>
+                <button className="bg-blue-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" onClick={()=>sortList(1)}>Price Ascending ↑</button>
+                <button className="bg-blue-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r" onClick={()=>sortList(-1)}>Price Descending ↓</button>
            </div>
             {showError()}
             {showLoading()}
