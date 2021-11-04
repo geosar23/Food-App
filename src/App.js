@@ -102,14 +102,14 @@ function App() {
     // }
   
   return (
-    <div className="relative pb-10 min-h-screen">
-      <header className="m-3 border-b p-4 flex justify-between items-center">
-            <span className="text-xl font-bold text-gray-800" >
+    <div className="bg-gray-100 relative pb-10 min-h-screen">
+        <header className="border-b p-4 flex justify-between items-center">
+            <span className="text-2xl font-bold text-gray-800" >
                 <button onClick={reloadPage} >George Saramantis</button>
             </span>
-            <div className="shadow flex">
+            <div className=" shadow flex">
                 <input 
-                    className="w-full rounded p-2" 
+                    className="context-center w-full rounded p-2" 
                     onChange={e=>{
                         setSearchTerm(e.target.value)
                     }} 
