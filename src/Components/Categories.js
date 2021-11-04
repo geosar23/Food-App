@@ -38,14 +38,14 @@ function Categories(props){
         axios.get(url)
             .then(response=>{
                 setCategories({
-                    loading:false,
+                    isLoading:false,
                     data:response.data.sort((a, b) => (a.index > b.index) ? 1 : -1),
                     error:false,
                 })
             })
             .catch(error=>{
                 setCategories({
-                    loading:false,
+                    isLoading:false,
                     data:null,
                     error
                 })
@@ -60,7 +60,7 @@ function Categories(props){
         content=<h1 className="text-center text-3xl bold text-red-500 content-center">Error:{categories.error.message} please refresh</h1>
     }
 
-    if(categories.loading){
+    if(categories.isLoading){
         content=<Loading/>
     }
 
