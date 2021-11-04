@@ -7,7 +7,7 @@ function Logo(){
     }
 
     return(
-        <span className="text-xl font-bold text-gray-800 " >
+        <span className="sm:text-xl  md:text-3xl font-bold text-gray-800 " >
             <button onClick={reloadPage}>George Saramantis</button>
         </span>
     )
