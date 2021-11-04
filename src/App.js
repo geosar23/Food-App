@@ -92,7 +92,7 @@ function App() {
 
   return (
     <div className="bg-gray-100 relative pb-10 min-h-screen">
-        <header className="border-b mb-4 p-2  grid grid-cols-3">
+        <header className="border-b mb-4 sm:p-2 md:p-5 xl:p-10  grid grid-cols-3">
             <Logo/>
             <Searchbar setSearchTerm={setSearchTerm}/>
             <Navigation chooseCategory={chooseCategory}/>
