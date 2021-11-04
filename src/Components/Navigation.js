@@ -26,7 +26,7 @@ function Navigation(props){
 
 
     return(
-        <nav className="m-1 ">
+        <nav className="mt-5 mr-5">
             <span className="text-3xl text-gray-800 flex justify-end">
                <button>
                     <FontAwesomeIcon 

@@ -2,7 +2,7 @@ import React from 'react'
 
 function Searchbar({setSearchTerm}){
     return(
-        <div className="shadow flex max-h-10 mt-2">
+        <div className="shadow flex max-h-10 mt-5">
                 <input 
                     className="context-center w-full rounded p-2" 
                     onChange={e=>{

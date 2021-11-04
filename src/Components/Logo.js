@@ -7,8 +7,8 @@ function Logo(){
     }
 
     return(
-        <span className="sm:text-xl  md:text-3xl font-bold text-gray-800 " >
-            <button onClick={reloadPage}>George Saramantis</button>
+        <span className="text-gray-800 mt-5 md:text-2xl lg:text-3xl" >
+            <button onClick={reloadPage} className="font-bold ">George Saramantis</button>
         </span>
     )
 }
