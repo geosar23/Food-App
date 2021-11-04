@@ -79,7 +79,12 @@ function Categories(props){
     return(
         <div >
             <h1 className="font-bold text-gray-800 text-3xl py-3 text-center">Categories</h1>
-
+            <li onClick={props.closeMenu}  className="block text-xl font-bold text-gray-800 py-3  border-t border-b bg-blue-200 hover:bg-gray-400  rounded-l text-center">
+                   <button onClick={e=>{
+                    console.log(`${e.target.name}===>${e.target.id}` )
+                    props.getClickedCategory(e.target.id)
+                    }} >All</button>
+                </li>
             {content}
         </div>
         

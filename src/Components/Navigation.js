@@ -29,10 +29,12 @@ function Navigation(props){
     return(
         <nav className="m-1 ">
             <span className="text-3xl text-gray-800 flex justify-end">
-                <FontAwesomeIcon 
-                    icon={faBars}
-                    onClick={()=>setShowMenu(!showMenu)} //instead of true , i use the opposite of the current state to make a toggle action 
-                />
+               <button>
+                    <FontAwesomeIcon 
+                        icon={faBars}
+                        onClick={()=>setShowMenu(!showMenu)} //instead of true , i use the opposite of the current state to make a toggle action 
+                    />
+               </button>
             </span>
 
             {   //https://react-spring.io/hooks/use-transition
